@@ -4,13 +4,13 @@
 
 2. Add the module as a dependency:
 
-```
+```bash
 cue mod get github.com/vikstrous/cuek8s
 ```
 
 3. Use the definitions available
 
-```
+```cue
 package cuek8stest
 
 import "github.com/vikstrous/cuek8s"
@@ -24,7 +24,7 @@ service: cuek8s.#Service & {
 
 4. Confirm that invalid definitions will trigger an error:
 
-```
+```cue
 service: cuek8s.#Service & {
         metadata: {
                 nonsense: true
@@ -32,7 +32,7 @@ service: cuek8s.#Service & {
 }
 ```
 
-```
+```bash
 service.metadata.nonsense: field not allowed:
     ../.cache/cue/mod/extract/github.com/vikstrous/cuek8s@v0.0.13/definitions.cue:34:11
     ../.cache/cue/mod/extract/github.com/vikstrous/cuek8s@v0.0.13/gen/k8s.io/api/core/v1/types_go_gen.cue:5941:13
