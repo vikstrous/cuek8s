@@ -8,3 +8,4 @@ rm -rf gen
 cp -r ./cue.mod/gen ./gen
 rm -rf cue.mod/gen
 find ./gen -type f -exec sed -i -E '/import \(/,/^\)/{s/"([^"]*)"/"github.com\/vikstrous\/cuek8s\/gen\/\1"/g}' {} +
+find ./gen -type f -exec sed -i -E 's/import "([^"]*)"/import "github.com\/vikstrous\/cuek8s\/gen\/\1"/g' {} +
